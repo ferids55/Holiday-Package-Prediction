@@ -1,28 +1,9 @@
 # Holiday Package Prediction
 
-## Latar Belakang
-Sebuah perusahaan travel ingin meluncurkan paket 
-perjalanan baru, tetapi perusahaan ingin memanfaatkan 
-data yang tersedia dari pelanggan yang ada dan pelanggan 
-potensial untuk membuat pengeluaran pemasaran lebih efisien.
-Berdasarkan data tahun lalu diketahui bahwa 18% pelanggan membeli paket perjalanan. Namun, biaya pemasarannya cukup tinggi karena pelanggan dihubungi secara acak tanpa melihat informasi yang tersedia.
-Bagaimana cara untuk membantu tim business mengetahui pelanggan yang tertarik untuk membeli paket perjalanan baru agar tidak dihubungi secara acak.
-Bagaimana cara membuat sistem untuk mengetahui pelanggan mana yang akan membeli paket perjalanan baru.
-Menggunakan business matrix “Conversion Rate”, yaitu persentase pelanggan akan membeli paket perjalanan baru.
-Menggunakan analytical approach “Predictive Analytics” dengan membuat model yang mampu memprediksi bahwa pelanggan akan membeli paket perjalanan baru atau tidak.
+## Dataset
+Perusahaan "Trips&Travel.com" ingin mengaktifkan dan membangun model bisnis yang layak untuk memperluas basis pelanggan. Salah satu cara untuk memperluas basis pelanggan adalah dengan memperkenalkan penawaran paket baru. Saat ini, ada 5 jenis paket yang ditawarkan perusahaan yaitu Basic, Standard, Deluxe, Super Deluxe, King. Melihat data tahun lalu, kami mengamati bahwa 18% pelanggan membeli paket. Namun, biaya pemasarannya cukup tinggi karena pelanggan dihubungi secara acak tanpa melihat informasi yang tersedia. Saat ini perusahaan berencana untuk meluncurkan produk baru yaitu Paket Wisata Kesehatan. Wellness Tourism didefinisikan sebagai perjalanan yang memungkinkan wisatawan untuk mempertahankan, meningkatkan atau memulai gaya hidup sehat, dan mendukung atau meningkatkan rasa sejahtera seseorang. Namun, saat ini perusahaan ingin memanfaatkan data yang tersedia dari pelanggan yang ada dan pelanggan potensial untuk membuat pengeluaran pemasaran lebih efisien.
 
-
-## Preparation Data
-Data yang digunakan adalah data Holiday Package Prediction. Sumber data dapat diakses [di sini](https://www.kaggle.com/susant4learning/holiday-package-purchase-prediction/code).  Dataset ini menggambarkan profil pelanggan yang sudah ada untuk digunakan dalam menganalisis dan memprediksi apakah customer tersebut akan membeli paket liburan terbaru atau tidak. Melakukan beberapa proses eksplorasi data (EDA) dan melakukan analisis statistika untuk mendapatkan insight yang menarik untuk dapat diolah dan divisualisasikan.
-
-## Deskripsi Data
-Dari info data tersebut diketahui bahwa:
-- Data terdiri dari 4888 baris dan 20 kolom 
-(14 kolom numerik dan 6 kolom kategorik).
-- Tampak beberapa kolom yang memiliki nilai null/missing values (non-null count < total baris).
-- Penamaan kolom dan tipe data terlihat sudah sesuai.
-
-### Terdapat 20 fitur pada data ini, di antaranya yaitu:
+## Data Description
 
 - CustomerID : Customer ID yang unik
 - ProdTaken : Produk dibeli atau tidak  
