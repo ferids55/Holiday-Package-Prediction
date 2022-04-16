@@ -5,17 +5,26 @@ Perusahaan "Trips&Travel.com" ingin mengaktifkan dan membangun model bisnis yang
 
 ## Data Description
 
-- CustomerID : Customer ID yang unik
-- ProdTaken : Produk dibeli atau tidak  
-(0: Tidak dibeli, 1: Dibeli)
-- Age : Usia dari customer
-- TypeofContact : Cara customer dikontak (Company Invited or Self Inquiry)
-- CityTier : Tingkat kota tergantung pada perkembangan kota, populasi, fasilitas, dan standar hidup. The categories are ordered i.e.
+- CustomerID : Unique customer ID
+- ProdTaken : Product taken or not (0: No, 1: Yes)
+- Age : Age of customer
+- TypeofContact : How customer was contacted (Company Invited or Self Inquiry)
+- CityTier : City tier depends on the development of a city, population, facilities, and living standards. The categories are ordered i.e.
 - DurationOfPitch : Duration of the pitch by a salesperson to the customer
-- Occupation : Pekerjaan dari customer
-- Gender : Jenis kelamin customer
-- NumberOfPersonVisiting : Jumlah orang yang berencana melakukan trip bersama customer
-- NumberOfFollowups : Jumlah follow-up yang telah dilakukan oleh sales setelah diberikan penawaran
+- Occupation : Occupation of customer
+- Gender : Gender of customer
+- NumberOfPersonVisiting : Total number of persons planning to take the trip with the customer
+- NumberOfFollowups : Total number of follow-ups has been done by the salesperson after the sales pitch
+- ProductPitched : Product pitched by the salesperson
+- PreferredPropertyStar : Preferred hotel property rating by customer
+- MaritalStatus : Marital status of customer
+- NumberOfTrips : Average number of trips in a year by customer
+- Passport : The customer has a passport or not (0: No, 1: Yes)
+- PitchSatisfactionScore : Sales pitch satisfaction score
+- OwnCar : Whether the customers own a car or not (0: No, 1: Yes)
+- NumberOfChildrenVisiting : Total number of children with age less than 5 planning to take the trip with the customer
+- Designation : Designation of the customer in the current organization
+- MonthlyIncome : Gross monthly income of the customer
 
 
 
