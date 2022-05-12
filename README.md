@@ -98,7 +98,7 @@ Dari 20 kolom tersebut yang akan dipilih sebagai target adalah kolom `ProdTaken`
 ## Result
 
 ### Best Model
-![result](/fig/model_result.png)
+![result](/fig/model_result.PNG)
 
 **XGBoost** menjadi model yang terbaik dengan **F1-Score paling tinggi yaitu 82.39% dan AUC 0.9707** dengan hasil confusion matrix yaitu
 
