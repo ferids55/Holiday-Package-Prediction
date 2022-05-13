@@ -1,23 +1,23 @@
 # Holiday Package Prediction
 
 ## Project Overview
-Perusahaan **Trips&Travel.com** ingin menawarkan paket liburan baru. Saat ini, ada 5 jenis paket yang ditawarkan perusahaan yaitu **Basic, Standard, Deluxe, Super Deluxe, King**. Berdasarkan data tahun lalu diketahui bahwa **hanya 18% pelanggan membeli yang paket. Namun, biaya pemasarannya cukup tinggi karena pelanggan dihubungi secara acak** tanpa melihat informasi yang tersedia. Perusahaan berencana untuk meluncurkan produk baru bernama **Wellness Tourism**. Perusahaan ingin memanfaatkan data yang tersedia dari pelanggan yang ada dan pelanggan potensial untuk membuat pengeluaran pemasaran lebih efisien.
+The company **Trips&Travel.com** wants to offer a new vacation package. Currently, there are 5 types of packages offered by the company, namely **Basic, Standard, Deluxe, Super Deluxe, King** . Based on last year's data, it was found that **only 18% of customers bought the package. However, the marketing costs are quite high because customers are contacted randomly** without seeing the available information. The company plans to launch a new product called **Wellness Tourism** . Companies want to leverage available data from existing and potential customers to make marketing spending more efficient.
 
 ## Business Problems
-- Pelanggan yang membeli paket liburan hanya 18% karena pemasaran dilakukan secara acak pada tahun lalu sehingga biaya pemasaran yang digunakan cukup tinggi.
-- Perusahaan ingin menggunakan data pelanggan yang ada dan pelanggan potensial untuk pemasaran paket liburan yang baru.
+- Only 18% of customers bought holiday packages because the marketing was done randomly in the last year so that the marketing costs used were quite high.
+- The company wants to use data on existing and potential customers for marketing new holiday packages.
 
 ## Objectives
-- Membuat sistem yang dapat membantu perusahaan dalam memprediksi pelanggan yang akan ditargetkan penawaran produk baru agar menaikkan tingkat konversi dan mengurangi biaya pemasaran.
-- Mengetahui karakteristik pelanggan yang akan membeli paket liburan untuk mencari pelanggan baru.
+- Create a system that can help companies predict which customers will be targeted for new product offerings in order to increase conversion rates and reduce marketing costs.
+- Knowing the characteristics of potential customers who will buy holiday packages to find new customers.
 
 ## Analytics Approach
-Melakukan **predictive analysis** dengan **supervised learning (classification)** untuk memprediksi pelanggan yang akan membeli paket liburan.
+Perform **predictive analysis with supervised learning (classification)** to predict customers who will buy vacation packages.
 
 <hr>
 
 ## Data Requirement
-Dataset yang digunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/susant4learning/holiday-package-purchase-prediction). Dataset terdiri dari 4888 baris dan 20 kolom dengan atribut sebagai berikut.
+The dataset used is from [Kaggle](https://www.kaggle.com/datasets/susant4learning/holiday-package-purchase-prediction). The dataset consists of 4888 rows and 20 columns with the following attributes.berikut.
 
 - **CustomerID** : Unique customer ID
 - **ProdTaken** : Product taken or not (0: No, 1: Yes)
@@ -40,58 +40,58 @@ Dataset yang digunakan berasal dari [Kaggle](https://www.kaggle.com/datasets/sus
 - **Designation** : Designation of the customer in the current organization
 - **MonthlyIncome** : Gross monthly income of the customer
 
-Dari 20 kolom tersebut yang akan dipilih sebagai target adalah kolom `ProdTaken` sedangkan kolom lainnya digunakan sebagai feature dan akan diseleksi kembali mana yang cocok.
+Of the 20 columns that will be selected as targets are columns `ProdTaken` while the other columns are used as features and will be re-selected which ones are suitable.
 
 ## Exploratory Data Analysis
-1. Multivariate Analysis (kolom numerik terhadap target)
+1. Multivariate Analysis (numeric column against target)
 ![multivariate1](/fig/multivariate_analysis_num.png)
 
-2. Multivariate Analysis (kolom categorik terhadap target)
+2. Multivariate Analysis (categorical column against target)
 ![multivariate2](/fig/multivariate_analysis_cat.png)
 
-3. Produk Basic lebih banyak dibeli pelanggan
+3. More basic products are bought by customers
 ![produk](/fig/insight1.png)
 
-4. Tiap jenis produk hanya ditawarkan pada 1 jabatan saja
+4. Each type of product is only offered in 1 position only
 ![jabatan](/fig/04.png)
 
-5. Kelompok umur remaja(17-25 tahun) cenderung lebih suka membeli paket liburan
+5. Teenagers (17-25 years old) tend to prefer to buy holiday packages
 ![umur](/fig/01.png)
 
-6. Jumlah follow up yang semakin banyak sangat mempengaruhi pembelian paket liburan
+6. The increasing number of follow-ups greatly affects the purchase of holiday packages
 ![followup](/fig/insight2.png)
 
 
 ## Preprocessing
-1. Ditemukan data yang tidak konsisten
-    - Pada kolom `Gender` seharusnya **"Fe Male"** menjadi **"Female"**
-    - Pada kolom `MaritalStatus` seharusnya **"Single"** diartikan sama dengan **"Unmarried"**
-2. Ditemukan *missing values* pada 8 kolom dan akan ditangani dengan metode imputasi berikut ini
-    - Kolom `Age` akan diisi dengan nilai mean
-    - Kolom `TypeofContact` akan diisi dengan nilai 'Unknown'
-    - Kolom `DurationOfPitch` akan disi dengan nilai median
-    - Kolom `NumberOfFollowups` akan disi dengan nilai min
-    - Kolom `PreferredPropertyStar` akan diisi dengan nilai 3
-    - Kolom `NumberOfTrips` akan disi dengan nilai median
-    - Kolom `NumberOfChildrenVisiting` akan diisi dengan nilai 0
-    - Kolom `MonthlyIncome` akan disi dengan nilai median
-3. Ditemukan 141 baris data yang duplikat sehingga perlu dihapus
-4. Ditemukan bebearapa data yang dianggap outlier dengan pendekatan **Z-Score**
-5. Membuat kolom baru bernama `TotalVisiting` = `NumberOfPersonVisiting` + `NumberOfChildrenVisiting`
-6. Melakukan encoding data pada kolom kategorik
-    - Kolom `Gender`, `ProductPitched` dan `Designation` dilakukan **Label Encoding**
-    - Kolom `TypeofContact`, `Occupation`, dan `MaritalStatus` dilakukan **One Hot Encoding**
-7. Melakukan transformasi data pada kolom numerik
-    - Kolom `Age` ditransformasi dengan normalisasi
-    - Kolom `DurationOfPitch` dan `MonthlyIncome` ditransformasi dengan standardisasi
-8. Pemilihan fitur menggunakan metode **Pearson Correlation dan Chi Square Test**
+1. Inconsistent data found
+    - In the column `Gender` it should be **"Fe Male"** to **"Female"**
+    - In the column `MaritalStatus`, **"Single"** should be interpreted the same as **"Unmarried"**
+2. Missing values ​​were found in 8 columns and will be handled with the following imputation method
+    - Column `Age` will be filled with mean value
+    - Column `TypeofContact` will be filled with value "Unknown"
+    - Column `DurationOfPitch` will be filled with median value
+    - Column `NumberOfFollowups` will be filled with min value
+    - Column `PreferredPropertyStar` will be filled with value 3
+    - Column `NumberOfTrips` will be filled with median value
+    - Column `NumberOfChildrenVisiting` will be filled with value 0
+    - Column `MonthlyIncome` will be filled with median value
+3. Found 141 duplicate data rows that need to be deleted
+4. Found some data that are considered outliers with the **Z-Score approach**
+5. Create a new column named `TotalVisiting` = `NumberOfPersonVisiting` + `NumberOfChildrenVisiting`
+6. Encoding data in categorical columns
+    - Column `Gender`, `ProductPitched` and `Designation` performed **Label Encoding**
+    - Column `TypeofContact`, `Occupation`, and `MaritalStatus` performed **One Hot Encoding**
+7. Perform data transformations on numeric columns
+    - Column `Age` transformed by **normalization**
+    - Column `DurationOfPitch` and `MonthlyIncome` transformed by **standardization**
+8. Feature selection using **Pearson Correlation** and **Chi Square Test**
 
 ## Modelling
-- Data dibagi menjadi train set dan test set dengan **proporsi 80:20**
-- Algoritma yang digunakan dalam pemodelan, yaitu **Logistic Regression, Decision Tree, Random Forest, AdaBoost, dan XGBoost**
-- Metric evaluasi yang dipilih adalah **F1-Score dan AUC**
-- Melakukan hyperparameter tuning
-- Membuat feature importance dari model terbaik
+- The data is divided into train set and test set with the **proportion of 80:20**
+- The algorithms used in the modeling are **Logistic Regression, Decision Tree, Random Forest, AdaBoost, and XGBoost**
+- The evaluation metrics chosen are **F1-Score and AUC**
+- Performing hyperparameter tuning
+- Making feature importance of the best model
 
 <hr>
 
@@ -100,7 +100,7 @@ Dari 20 kolom tersebut yang akan dipilih sebagai target adalah kolom `ProdTaken`
 ### Best Model
 ![result](/fig/model_result.PNG)
 
-**XGBoost** menjadi model yang terbaik dengan **F1-Score paling tinggi yaitu 82.39% dan AUC 0.9707** dengan hasil confusion matrix yaitu
+XGBoost is the best model with the highest **F1-Score of 82.39% and AUC of 0.9707** with confusion matrix results, namely
 
     - True Positive 131
     - False Positive 17
@@ -108,33 +108,34 @@ Dari 20 kolom tersebut yang akan dipilih sebagai target adalah kolom `ProdTaken`
     - False Negative 39
 
 ### Modelling Insights
-1. Ada 4 feature yang cukup berpengaruh yaitu `Passport`, `ProductPitched`, `MaritalStatus`, dan `CityTier`
+1. There are 4 features that are quite influential, namely `Passport`, `ProductPitched`, `MaritalStatus`, and `CityTier`
 ![feat_importance](/fig/feature_importance.png)
 
-2. Hanya produk Standard yang cenderung suka dibeli orang yang tidak memiliki passsport
+2. Only Standard products tend to be bought by people who don't have a passport
 ![passport](/fig/06.png)
 
-3. Jenis produk ditawarkan berdasarkan jabatan atau pendapatan bulanan
+3. Product types are offered based on job title or monthly income
 ![income](/fig/05.png)
 
-4. Produk Basic lebih banyak dibeli pelanggan dengan yang belum menikah
+4. Basic products are mostly bought by unmarried customers
 ![status](/fig/07.png)
 
-5. Pelanggan yang tinggal di City Tier 1 atau 2 lebih banyak membeli produk Basic sedangkan di City Tier 3 lebih banyak yang membeli produk Deluxe
+5. Customers who live in City Tier 1 or 2 buy more Basic products while those in City Tier 3 buy more Deluxe products
 ![city](/fig/08.png)
 
 ### Business Impact
-Berdasarkan pengujian terhadap test data, model machine learning yang dibuat berhasil **menaikkan conversion rate 88.5%** (148 orang dari 170 orang) dan **mengurangi biaya pemasaran 83%** (35097 USD).
+Based on testing on test data, the machine learning model created succeeded in **increasing the conversion rate by 88.5%** (148 people out of 170 people) and **reducing marketing costs by 83%** (35097 USD).
+
 ![impact](/fig/model_impact.PNG)
 
 <hr>
 
 ## Recommendation
-1. Melakukan **marketing campaign terhadap potential customer untuk paket Wellness Tourism** dengan ketentuan:
-    - Jika paket Wellness terdiri dari beberapa jenis maka bisa diprioritaskan **dari yang paling murah sesuai dengan jabatan** pekerjaan pelanggannya.
-    - Prioritaskan dahulu pada kelompok umur **Remaja (18-25 tahun) dengan durasi pitch di bawah 20 menit**.
-    - **Paket Wellness paling murah** bisa ditawarkan pada pelanggan dengan **status unmarried atau tinggal di city tier 1 atau 2**.
-    - **Paket Wellness yang medium** bisa ditawarkan pada pelanggan yang **belum memiliki passport atau tinggal di city tier 3**.
-    - **Paket Wellness lainnya bisa ditawarkan sesuai dengan montly income** pelanggan tersebut.
-    - Jangan lupa melakukan **follow up lebih dari 3 kali**.
-2. Jika menggunakan model, revenue yang didapatkan lebih sedikit, maka kami merekomendasikan **marketing cost yang tersisa untuk digunakan mencari basis pelanggan baru** sehingga revenue yang dihasilkan meningkat.
+1. **Conduct marketing campaigns for potential customers for Wellness Tourism** packages with the following conditions:
+    - If the Wellness package consists of several types, it can be prioritized **from the cheapest according to the customer's job title**.
+    - Prioritize **teenagers (18-25 years old)** with pitch durations under 20 minutes .
+    - **The cheapest Wellness package** can be offered to customers with **unmarried status or living in city tier 1 or 2**.
+    - **The medium Wellness package** can be offered to customers who **do not have a passport or live in city tier 3**.
+    - Other Wellness packages can be **offered according to the customer's monthly income**.
+    - Don't forget to **follow up more than 3 times**.
+2. If we use this model, **the revenue you get is less**, so we recommend that the **remaining marketing costs be used to find a new customer base** so that the revenue generated increases.
